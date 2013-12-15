@@ -1,79 +1,62 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Shennong : drug ratio converter" />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
+    <meta charset="utf-8"></meta>
     <title>Shennong</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="shennong.css">
   </head>
-
   <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/alivedise/shennong">View on GitHub</a>
-
-          <h1 id="project_title">Shennong</h1>
-          <h2 id="project_tagline">drug ratio converter</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/alivedise/shennong/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/alivedise/shennong/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+    <div class="sn-header" id="content">
+      <div class="container">
+        <h1>Shennong <small>-drug ratio converter-</small></h1>
+        <h3>Usage</h3>
+        <p>
+          1. 打開試算表
+          2. 另存成.csv
+          3. 打開記事本
+          4. 打開剛剛存的.csv
+          5. 全選複製，貼上到下面方塊
+          6. 按 Taste
+        </p>
+      </div>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <textarea rows="20" cols="80" id="drug" autofocus="" spellcheck="false">
+          OO綜合醫院,,第2線抗生素使用統計表,,,,,,,,,,,
+統計期間：102.01.01 ~ 102.10.31,,,,,門急住來源：住診,,,分類方式：不分,,,保險別：不分,,
+藥名,1月,2月,3月,4月,5月,6月,7月,8月,9月,10月,11月,12月,總計
+ACEMYCIN500mg/2cc,23,54.5,89.5,51.5,13,50.5,54,32.5,37.5,69.5,,,475.5
+AUGMENTIN 375mg,147.5,90.8,119.3,102.3,101,73.5,153.3,143,134,110.5,,,1175
+Cinolone250(Ciproflo,14.3,5.3,16.5,8,28.3,8.3,19.5,5.3,5.8,9.5,,,120.5
+CRAVIT F.C500mg,82,52,62,109,75,64,88,122,98,54,,,806
+KLARICID 500mg,45,54,32,63,14,40,27,24,73,24,,,396
+針CURAM 500/100mg,91.8,68.7,92,111.2,58.7,90.8,75,66.8,63.4,72.8,,,791.01
+糖漿CURAM312.5mg/5ml,,,,,,,,9,,,,,9
+,,,,,,,,,,,,(單位 : DDD)
+          </textarea>
+          <button class="btn btn-primary" id="parse">Taste</button>
+        </div>
+        <div class="col-md-5">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Drug name</th>
+                <th>Ratio</th>
+                <th>Original</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Shennong maintained by <a href="https://github.com/alivedise">alivedise</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
+    <script src="drug.js"></script>
   </body>
 </html>
