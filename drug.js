@@ -18,8 +18,7 @@
         self._dump(name, $(evt.target).val());
 
         self._ratio[name] = parseFloat($(evt.target).val());
-        self._dump(self._ratio, self._vanilla);
-        $(evt.target).parent().siblings('.result').text((self._vanilla[name] * self._ratio[name]).toFixed(2));
+        self.parse();
       });
 
       if (this.input.value !== '') {
