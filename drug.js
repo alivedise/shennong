@@ -85,17 +85,17 @@
         this._dump(i+1, amount);
         if (i < 12) {
           total += amount;
-          newArray.push(amount ? (amount * ratio).toFixed(2) : '');
+          newArray.push(amount ? (amount * ratio).toFixed(1) : '');
         } else {
           newArray.push(a[i]);
         }        
       }
       this._vanilla[name] = total;
       
-      var result = (ratio * total).toFixed(2);
+      var result = (ratio * total).toFixed(1);
       this.tableBody.append('<tr><td class="name">' + name + '</td>' +
         '<td><input value="' + ratio + '" /></td>' +
-        '<td class="vanilla">' + total.toFixed(2) + '</td>' +
+        '<td class="vanilla">' + total.toFixed(1) + '</td>' +
         '<td class="result">' + result + '</td></tr>');
 
       newArray.push(result);
