@@ -63,6 +63,7 @@
     },
 
     parseLine: function dr_parseLine(line) {
+      var newArray = [];
       var a = line.split(',');
       if (a.length < 12 + 1) {
         // Do not parse anything is less than 12 columns.
@@ -74,26 +75,31 @@
         return line;
       }
 
+      var ratio = (name in this._ratio) ? this._ratio[name] : 1.0;
       this._dump('=====' + name + '=====');
       var total = 0.0;
+      newArray.push(name);
       for (var i = 0; i < a.length; i++) {
         var amount = parseFloat(a[i]);
         amount = isNaN(amount) ? 0 : amount;
         this._dump(i+1, amount);
         if (i < 12) {
           total += amount;
-        }
+          newArray.push(amount ? (amount * ratio).toFixed(2) : '');
+        } else {
+          newArray.push(a[i]);
+        }        
       }
       this._vanilla[name] = total;
-      var ratio = (name in this._ratio) ? this._ratio[name] : 1.0;
+      
       var result = (ratio * total).toFixed(2);
       this.tableBody.append('<tr><td class="name">' + name + '</td>' +
         '<td><input value="' + ratio + '" /></td>' +
         '<td class="vanilla">' + total.toFixed(2) + '</td>' +
         '<td class="result">' + result + '</td></tr>');
 
-      line = line + ',' + result;
-      return line;
+      newArray.push(result);
+      return newArray.concat(',');
     },
 
     _dump: function() {
